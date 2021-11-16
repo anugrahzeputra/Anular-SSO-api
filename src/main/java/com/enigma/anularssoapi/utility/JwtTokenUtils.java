@@ -20,7 +20,7 @@ public class JwtTokenUtils {
     @Autowired
     AnularUserDetailsService anularUserDetailsService;
 
-    @Value("ThisIsForEncryptedPasswordTHatHashingSome FunctionThrougThe PAsswordAnd The Pasword is 23rhob3oirb2i3hrifhuw4hr2u3rhefb2i3hrugbi3rhoq2")
+    @Value("ThisIsForEncryptedPasswordTHatHashingSomeFunctionThrougThePAsswordAndThePaswordis23rhob3oirb2i3hrifhuw4hr2u3rhefb2i3hrugbi3rhoq2")
     private String secret;
 
     public String generateToken(UserDetails userDetails, Integer minute){

@@ -53,13 +53,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.httpBasic().and().csrf().disable()
             .authorizeRequests()
-            .antMatchers("/api/signIn", "/api/*/register", "/api/*/request").permitAll()
-//            .anyRequest().hasAuthority("user")
-            .anyRequest().permitAll();
-//            .and().addFilterBefore(
-//                    requestInterceptor,
-//                    UsernamePasswordAuthenticationFilter.class
-//            );
+            .antMatchers("/api/*/signin", "/api/*/register", "/api/*/request", "/api/admin/*").permitAll()
+            .anyRequest().hasAuthority("user")
+            .and().addFilterBefore(
+                    requestInterceptor,
+                    UsernamePasswordAuthenticationFilter.class
+            );
 
         http.logout(
                 logout -> logout.logoutUrl("/logout")

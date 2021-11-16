@@ -4,7 +4,6 @@ import com.enigma.anularssoapi.dto.customresponse.StatResp;
 import com.enigma.anularssoapi.dto.pojos.AnularGroupFirstState;
 import com.enigma.anularssoapi.entity.AnularAccount;
 import com.enigma.anularssoapi.entity.AnularGroup;
-import com.enigma.anularssoapi.entity.AnularUser;
 import com.enigma.anularssoapi.repository.AnularGroupRepository;
 import com.enigma.anularssoapi.service.anularaccount.AnularAccountService;
 import com.enigma.anularssoapi.service.anularsitetype.AnularSiteTypeService;
@@ -70,7 +69,9 @@ public class AnularGroupServiceImpl implements AnularGroupService {
                 anularGroupFirstState.getUserId().split("-")[1])
         );
         validateIdIsNotExist(anularGroupFirstState);
-        return create(new AnularGroup(anularGroupFirstState));
+        AnularGroup anularGroup = create(new AnularGroup(anularGroupFirstState));
+        anularUserService.updateUserByAdmin(anularGroupFirstState.getUserId(), anularGroupFirstState.getId());
+        return anularGroup;
     }
 
     @Override

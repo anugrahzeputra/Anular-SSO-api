@@ -4,7 +4,6 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import java.security.AlgorithmConstraints;
 import java.security.Key;
 import java.util.Arrays;
 
@@ -13,7 +12,7 @@ public class IdGenerator implements Key {
 
     private static String STATIC_KEY;
 
-    @Value("ThisIsForEncryptedPasswordTHatHashingSome FunctionThrougThe PAsswordAnd The Pasword is 23rhob3oirb2i3hrifhuw4hr2u3rhefb2i3hrugbi3rhoq2")
+    @Value("ThisIsForEncryptedPasswordTHatHashingSomeFunctionThrougThePAsswordAndThePaswordis23rhob3oirb2i3hrifhuw4hr2u3rhefb2i3hrugbi3rhoq2")
     public void setStaticKey(String value){
         IdGenerator.STATIC_KEY = value;
     }

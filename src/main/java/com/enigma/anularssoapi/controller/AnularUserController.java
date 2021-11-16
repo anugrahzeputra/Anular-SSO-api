@@ -1,6 +1,8 @@
 package com.enigma.anularssoapi.controller;
 
 import com.enigma.anularssoapi.dto.customresponse.StatResp;
+import com.enigma.anularssoapi.dto.customresponse.TokenResp;
+import com.enigma.anularssoapi.dto.pojos.AnularUserCredential;
 import com.enigma.anularssoapi.entity.AnularGroup;
 import com.enigma.anularssoapi.entity.AnularUser;
 import com.enigma.anularssoapi.service.anularuser.AnularUserService;
@@ -38,5 +40,15 @@ public class AnularUserController {
     @DeleteMapping("/api/user")
     public StatResp deleteUser(@RequestParam String id){
         return anularUserService.delete(id);
+    }
+
+    @GetMapping("/api/user/signin")
+    public TokenResp getToken(@RequestBody AnularUserCredential anularUserCredential){
+        return anularUserService.login(anularUserCredential);
+    }
+
+    @PostMapping("/api/authenticate/{token}")
+    public StatResp authenticate(@PathVariable String token){
+        return anularUserService.authenticate(token);
     }
 }
