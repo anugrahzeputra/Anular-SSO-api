@@ -4,4 +4,5 @@ import com.enigma.anularssoapi.entity.AnularUser;
 import com.enigma.anularssoapi.service.CRUDService;
 
 public interface AnularUserService extends CRUDService<AnularUser> {
+    AnularUser createByAdmin(AnularUser anularUser);
 }

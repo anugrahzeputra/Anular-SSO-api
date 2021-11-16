@@ -1,4 +1,4 @@
-package com.enigma.anularssoapi;
+package com.enigma.anularssoapi.dto.enumeration;
 
 import com.enigma.anularssoapi.entity.AnularUser;
 

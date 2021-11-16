@@ -32,7 +32,6 @@ public class AnularGroupServiceImpl implements AnularGroupService {
     @Override
     public AnularGroup create(AnularGroup anularGroup) {
         anularGroup.setAnularSiteType(anularSiteTypeService.getById(anularGroup.getAST()));
-        System.out.println(anularGroup);
         return anularGroupRepository.save(anularGroup);
     }
 
@@ -41,10 +40,10 @@ public class AnularGroupServiceImpl implements AnularGroupService {
         anularUserService.getById(anularGroupFirstState.getUserId());
         anularGroupFirstState.setId(idGenerator.getGroupId(
                 anularGroupRepository.getGroupId(),
-                anularGroupFirstState.getUserId())
+                anularGroupFirstState.getUserId().split("-")[1])
         );
         if(anularGroupRepository.getGroupIdALIke(
-                anularGroupFirstState.getId().split("-")[0],
+                anularGroupFirstState.getId().split("-")[1],
                 anularGroupFirstState.getUserId())
                 .isPresent()){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "id is exist");

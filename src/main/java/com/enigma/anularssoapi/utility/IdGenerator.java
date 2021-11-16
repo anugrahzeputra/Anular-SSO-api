@@ -21,7 +21,7 @@ public class IdGenerator {
 
     public String getGroupId(Integer id, String user){
         StringBuilder group = new StringBuilder(Integer.toHexString(id));
-        while(group.length() <= 5){
+        while(group.length() <= 6){
             group.append("0");
         }
         return simpleEncode(group.toString()) +
@@ -33,7 +33,7 @@ public class IdGenerator {
 
     public String getUserId(Integer id, String group){
         StringBuilder user = new StringBuilder(Integer.toHexString(id));
-        while(user.length() <= 5){
+        while(user.length() <= 6){
             user.append("0");
         }
         return simpleEncode(user.toString()) +  "-" + group + "-" + encode();

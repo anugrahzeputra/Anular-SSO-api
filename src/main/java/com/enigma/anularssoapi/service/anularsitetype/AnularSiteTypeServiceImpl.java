@@ -23,12 +23,19 @@ public class AnularSiteTypeServiceImpl implements AnularSiteTypeService {
     @Override
     public AnularSiteType create(AnularSiteType anularSiteType) {
         anularSiteType.setId(idGenerator.getTypeId());
-        validateIdIsNotExist(anularSiteType);
+        validateIdIsNotExist(anularSiteType.getId());
+        validateNameIsNotExist(anularSiteType.getNameType());
         return anularSiteTypeRepository.save(anularSiteType);
     }
 
-    private void validateIdIsNotExist(AnularSiteType anularSiteType) {
-        if(anularSiteTypeRepository.findById(anularSiteType.getId()).isPresent()){
+    private void validateNameIsNotExist(String name) {
+        if(anularSiteTypeRepository.findByNameType(name).isPresent()){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "type name already exist");
+        }
+    }
+
+    private void validateIdIsNotExist(String id) {
+        if(anularSiteTypeRepository.findById(id).isPresent()){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "id is exist");
         }
     }

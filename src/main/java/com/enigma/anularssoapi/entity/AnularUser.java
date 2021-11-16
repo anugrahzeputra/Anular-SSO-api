@@ -91,4 +91,8 @@ public class AnularUser {
     public String getAnularUserStat() {
         return anularUserStat;
     }
+
+    public void setAnularUserStat(String anularUserStat) {
+        this.anularUserStat = anularUserStat;
+    }
 }
