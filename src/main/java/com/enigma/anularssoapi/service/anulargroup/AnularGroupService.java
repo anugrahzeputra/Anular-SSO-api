@@ -6,4 +6,5 @@ import com.enigma.anularssoapi.service.CRUDService;
 
 public interface AnularGroupService extends CRUDService<AnularGroup> {
     AnularGroup createByUser(AnularGroupFirstState anularGroupFirstState);
+    AnularGroup createByAdmin(AnularGroupFirstState anularGroupFirstState);
 }

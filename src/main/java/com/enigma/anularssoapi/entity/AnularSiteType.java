@@ -6,7 +6,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-@Table(name = "MST_SITE_TYPE")
+@Table(name = "mst_site_type")
 public class AnularSiteType {
 
     @Id

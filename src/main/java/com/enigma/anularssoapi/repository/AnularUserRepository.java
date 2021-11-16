@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AnularUserRepository extends JpaRepository<AnularUser, String> {
-    @Query(value = "SELECT COUNT(*) FROM MST_USER", nativeQuery = true)
+    @Query(value = "SELECT COUNT(*) FROM mst_user", nativeQuery = true)
     Integer getUserId();
 }

@@ -7,7 +7,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-@Table(name = "MST_GROUP")
+@Table(name = "mst_group")
 public class AnularGroup {
 
     @Id
@@ -19,7 +19,7 @@ public class AnularGroup {
     private String AST;
 
     @ManyToOne
-    @JoinColumn(name = "AST")
+    @JoinColumn(name = "ast")
     private AnularSiteType anularSiteType;
 
     public AnularGroup() {

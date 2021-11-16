@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @Repository
 public interface AnularSiteTypeRepository extends JpaRepository<AnularSiteType, String> {
-    @Query(value = "SELECT COUNT(*) FROM MST_SITE_TYPE", nativeQuery = true)
+    @Query(value = "SELECT COUNT(*) FROM mst_site_type", nativeQuery = true)
     Integer getTypeId();
 
     Optional<AnularSiteType> findByNameType(String name);

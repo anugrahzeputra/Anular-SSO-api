@@ -1,6 +1,7 @@
 package com.enigma.anularssoapi.controller;
 
 import com.enigma.anularssoapi.dto.customresponse.StatResp;
+import com.enigma.anularssoapi.dto.pojos.AnularGroupFirstState;
 import com.enigma.anularssoapi.entity.AnularGroup;
 import com.enigma.anularssoapi.entity.AnularSiteType;
 import com.enigma.anularssoapi.entity.AnularUser;
@@ -35,7 +36,7 @@ public class AdminController {
     }
 
     @PostMapping("/api/admin/group")
-    public AnularGroup addGroup(@RequestBody AnularGroup anularGroup){
-        return anularGroupService.create(anularGroup);
+    public AnularGroup addGroup(@RequestBody AnularGroupFirstState anularGroupFirstState){
+        return anularGroupService.createByAdmin(anularGroupFirstState);
     }
 }

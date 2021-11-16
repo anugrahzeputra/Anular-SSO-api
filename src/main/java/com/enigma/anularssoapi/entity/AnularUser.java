@@ -9,7 +9,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "MST_USER")
+@Table(name = "mst_user")
 public class AnularUser {
 
     @Id
@@ -31,7 +31,7 @@ public class AnularUser {
     private String AGID;
 
     @ManyToOne
-    @JoinColumn(name = "AGID")
+    @JoinColumn(name = "agid")
     private AnularGroup anularGroup;
 
     private String anularUserStat;
@@ -57,6 +57,10 @@ public class AnularUser {
 
     public String getPassword() {
         return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getEmail() {

@@ -1,16 +1,19 @@
 package com.enigma.anularssoapi.utility;
 
+import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import java.security.AlgorithmConstraints;
+import java.security.Key;
 import java.util.Arrays;
 
 @Component
-public class IdGenerator {
+public class IdGenerator implements Key {
 
     private static String STATIC_KEY;
 
-    @Value("WeAreStrong")
+    @Value("ThisIsForEncryptedPasswordTHatHashingSome FunctionThrougThe PAsswordAnd The Pasword is 23rhob3oirb2i3hrifhuw4hr2u3rhefb2i3hrugbi3rhoq2")
     public void setStaticKey(String value){
         IdGenerator.STATIC_KEY = value;
     }
@@ -98,4 +101,18 @@ public class IdGenerator {
         return Math.abs((int)(Math.random()*10));
     }
 
+    @Override
+    public String getAlgorithm() {
+        return SignatureAlgorithm.HS512.getValue();
+    }
+
+    @Override
+    public String getFormat() {
+        return null;
+    }
+
+    @Override
+    public byte[] getEncoded() {
+        return new byte[0];
+    }
 }
