@@ -72,7 +72,7 @@ public class AnularUserServiceImpl implements AnularUserService{
         sendMail(
                 email,
                 String.format(
-                        "http://localhost:8081/api/authenticate/%s",
+                        "https://anular-sso-api.herokuapp.com/api/authenticate/%s",
                         token
                 )
         );
