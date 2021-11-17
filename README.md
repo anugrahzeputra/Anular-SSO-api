@@ -50,6 +50,15 @@ Note: you must fulfill all the data first and you can't register using already e
 }
 ```
 * when you register you will get an email by the program that provide an OTP Link to use your account to sign in
+```
+Dear Pengguna Anular SSO Apps
+
+Berikut adalah link untuk registrasi Anular SSO Apps. mohon diperhatikan bahwa link akan kadaluarsa dalam waktu 30 menit
+
+https://anular-sso-api.herokuapp.com/api/authenticate/eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJVc2VyOSIsImlhdCI6MTYzNzExODY2MSwiZXhwIjoxNjM3MTIyMjYxfQ.i2zvey0fY_WY-cVf56krZONbAT65KZfJq1f7JRK8wdMEmUijEkw2ag2Z7166Eo2jmTw-ObVH7HLIjGbrbflQgw
+
+terima kasih telah menggunakan layanan kami
+```
 ###### user SignIn
 * you can signIn by this url
 ```
