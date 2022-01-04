@@ -14,9 +14,18 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+import java.util.Collections;
 
 @Configuration
-@EnableWebMvc
+@EnableSwagger2
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -64,6 +73,29 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 logout -> logout.logoutUrl("/logout")
                         .invalidateHttpSession(true)
                         .deleteCookies("JSESSIONID")
+        );
+    }
+
+    @Bean
+    public Docket api(){
+        return new Docket(DocumentationType.SWAGGER_2)
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.enigma.anularssoapi"))
+                .paths(PathSelectors.any())
+                .build()
+                .apiInfo(apiInfo());
+    }
+
+    private ApiInfo apiInfo(){
+        return new ApiInfo(
+                "Anular SSO API",
+                "API for Anular SSO",
+                "v1.0",
+                "https://anular-sso-api.herokuapp.com",
+                new Contact("Anugrah Zeputra", "anugrahatwork.wordpress.com", "z.putra.anugrah101@gmail.com"),
+                "Apache 2.0",
+                "none",
+                Collections.emptyList()
         );
     }
 }
