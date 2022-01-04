@@ -60,9 +60,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.httpBasic().and().csrf().disable()
+        http.httpBasic().disable().csrf().disable()
             .authorizeRequests()
-            .antMatchers("/api/*/signin", "/api/*/register", "/api/*/request", "/api/admin/*").permitAll()
+            .antMatchers("/api/*/signin", "/api/*/register", "/api/*/request", "/api/admin/*", "/swagger-ui/*", "/v2/*", "/swagger-resources/**").permitAll()
             .anyRequest().hasAuthority("user")
             .and().addFilterBefore(
                     requestInterceptor,
